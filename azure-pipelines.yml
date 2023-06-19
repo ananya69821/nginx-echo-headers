@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-  name: 'selfpool'
+  name: Azure Pipelines
 
 steps:
 - task: Docker@2

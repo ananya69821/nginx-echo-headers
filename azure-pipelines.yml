@@ -2,12 +2,12 @@ trigger:
 - master
 
 pool:
-  name: 'govpool'
+  name: 'selfpool'
 
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: '{Docker Registry Service Connection Name}'
+    containerRegistry: 'sp-acr'
     repository: 'nginx-echo-headers'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
@@ -15,8 +15,8 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: '{Azure Resource Manager Service Connection Name}'
-    azureResourceGroup: 'gov-devops'
-    kubernetesCluster: '{aks cluster name}'
+    azureSubscriptionEndpoint: 'sp-terraform'
+    azureResourceGroup: 'my-aks01'
+    kubernetesCluster: 'my-aks01-cluster'
     command: 'apply'
     arguments: '-f deploy.yaml'

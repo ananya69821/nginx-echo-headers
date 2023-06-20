@@ -1,7 +1,8 @@
 trigger:
 - master
 
-vmImageName: 'ubuntu-latest'
+pool:
+  vmImage: $(vmImageName)
 
 steps:
 - task: Docker@2

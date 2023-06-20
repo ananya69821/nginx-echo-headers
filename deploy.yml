@@ -16,8 +16,8 @@ spec:
       containers:
       - name: private-reg-container
         image: acr01rekha.azurecr.io/nginx-echo-headers:latest
-        imagePullSecrets:
-        - name: regcred
+      imagePullSecrets:
+      - name: regcred
 
 ---
 apiVersion: v1

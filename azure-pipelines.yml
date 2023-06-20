@@ -20,4 +20,4 @@ steps:
     azureResourceGroup: 'my-aks01'
     kubernetesCluster: 'my-aks01-cluster'
     command: 'apply'
-    arguments: '-f deploy.yaml'
+    arguments: '-f deploy.yml'
